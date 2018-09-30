@@ -1,0 +1,32 @@
+#I1{
+    background-color: #D5B0AC;
+    color: #402E2A;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    
+}
+.item{
+    width: 100px;
+    height: 30px;
+    padding-top: 10px;
+    text-align: center;
+    
+}
+.item:hover{
+    background-color: #9CD08F;
+    color: #FFFFFF;
+}
+#I2 {
+    width: 100px;
+    background-color: #D5B0AC;
+    color: #402E2A;
+    font-weight: bold;
+}
+
+#I3{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+

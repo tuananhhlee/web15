@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="test">cccc</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    $('.test').on('click', function(){
+        $.ajax({
+            url: `http://localhost:1010/api/users`,
+            type: 'Get',
+            success: function(data ){
+                console.log(data)
+            },error: function(err){    
+                let error = JSON.stringify(err)   
+                alert(error)
+            }
+        })
+    })
+</script>
+
+</html>

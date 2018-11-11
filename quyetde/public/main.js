@@ -15,10 +15,11 @@ function getRandomQuestion() {
 		url: `http://localhost:9000/randomquestion`,
 		type: "GET",
 		success: function(response) {
-
+			console.log(response)
 			if(response) {
 				$("#questionContent").text(response.questionContent);
-				$(".answer_btn").data("questionid", response.id);
+				$(".answer_btn").data("questionid", response._id);
+				$("#viewDetail").attr("href","/question/"+response._id);
 			}
 		},
 		error: function(err) {
@@ -34,14 +35,14 @@ $("#otherQuestion").on("click", function() {
 });
 
 $(".answer_btn").on("click", function() {
-	console.log($(this).data())
+	let questionId = $(this).data("questionid");
 	$.ajax({
 		url: "http://localhost:9000/answer",
 		type: "POST",
 		data: $(this).data(),
 		success: function(response) {
 			if(response.success) {
-				window.location.href = "/";
+				window.location.href = "/question/"+ questionId;
 			}
 		},
 		error: function(err) {
@@ -51,17 +52,17 @@ $(".answer_btn").on("click", function() {
 	})
 });
 
-$('#voteResult').on("click", function () {
-	$.ajax({
-		url: 'http://localhost:9000/result',
-		type: 'GET',
-		success: function (response) {
-			if (response) {
-				window.location.href = "/result";
-			}
-		},
-		error: function (err) {
-			console.log(err);
-		}
-	})
-});
+// $('#voteResult').on("click", function () {
+// 	$.ajax({
+// 		url: 'http://localhost:9000/result',
+// 		type: 'GET',
+// 		success: function (response) {
+// 			if (response) {
+// 				window.location.href = "/result";
+// 			}
+// 		},
+// 		error: function (err) {
+// 			console.log(err);
+// 		}
+// 	})
+// });
